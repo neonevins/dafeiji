@@ -8,6 +8,7 @@ export default class Player {
     this.readyToDie = false
     this.boomImgList = boomImgList
     this.count = 0
+    this.timer = null
     this.rect = {
       x: status.screen.w / 2 - 35,
       y: status.screen.h - 35,
@@ -20,6 +21,10 @@ export default class Player {
     this.img = new Image()
     this.img.src = "public/hero.png"
     this.img.onload = () => this.load = true
+    clearInterval(this.timer)
+    this.timer = setInterval(() => {
+      this.fire()
+    }, 300)
   }
   render(){
     if(this.load){
@@ -41,7 +46,6 @@ export default class Player {
       this.dead = true
       return
     }
-
     // 处理死亡
     if(this.readyToDie){
       this.img = this.boomImgList[this.count++]

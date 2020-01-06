@@ -59,6 +59,7 @@ class Game {
   // 时间模块
   basicEvent(){
     window.addEventListener("resize", this.setSize.bind(this))
+    // 移动端木有这个功能
     window.addEventListener("keydown", e => {
       if(this.paused) return
       if(e.key.toLowerCase() === "f"){
