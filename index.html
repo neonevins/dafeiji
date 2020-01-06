@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body, html{
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<script type="module">
+  import Game from './src/game.js'
+  window.game = new Game(document.querySelector("body"))
+  document.body.onblur = game.stop
+  document.body.onfocus = game.run
+</script>
+</body>
+</html>
